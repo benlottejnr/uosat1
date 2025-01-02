@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uosat/base/bottom_nav_bar.dart';
+import 'package:uosat/screens/all_tickets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: BottomNavBar(),
+      routes: {
+        "/": (context) => BottomNavBar(),
+        "/all_tickets": (context) => AllTickets(),
+      },
     );
   }
 }

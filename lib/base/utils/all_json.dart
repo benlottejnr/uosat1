@@ -5,8 +5,8 @@ List<Map<String, dynamic>> ticketList = [
       'name':"New-York"
     },
     'to': {
-      'code':"LDN",
-      'name':"London"
+      'code':"GTW",
+      'name':"Gatwick"
     },
     'flying_time': '8H 30M',
     'date': "1 MAY",
@@ -26,6 +26,34 @@ List<Map<String, dynamic>> ticketList = [
     'date': "10 MAY",
     'departure_time':"09:00 AM",
     "number":45
+  },
+  {
+    'from': {
+      'code':"KIA",
+      'name':"Accra"
+    },
+    'to': {
+      'code':"LDN",
+      'name':"London"
+    },
+    'flying_time': '8H 30M',
+    'date': "1 MAY",
+    'departure_time':"08:00 AM",
+    "number":32
+  },
+  {
+    'from': {
+      'code':"DK",
+      'name':"Dhaka"
+    },
+    'to': {
+      'code':"SH",
+      'name':"Shanghai"
+    },
+    'flying_time': '4H 20M',
+    'date': "10 MAY",
+    'departure_time':"09:00 AM",
+    "number":67
   },
   {
     'from': {
@@ -55,32 +83,26 @@ List<Map<String, dynamic>> ticketList = [
     'departure_time':"09:00 AM",
     "number":45
   },
+];
+
+List<Map<String, dynamic>> hotelList = [
   {
-    'from': {
-      'code':"NYC",
-      'name':"New-York"
-    },
-    'to': {
-      'code':"LDN",
-      'name':"London"
-    },
-    'flying_time': '8H 30M',
-    'date': "1 MAY",
-    'departure_time':"08:00 AM",
-    "number":23
+    'image': 'hotel_room.png',
+    'place': 'The Mecure',
+    'destination': 'London',
+    'price': 25
   },
   {
-    'from': {
-      'code':"DK",
-      'name':"Dhaka"
-    },
-    'to': {
-      'code':"SH",
-      'name':"Shanghai"
-    },
-    'flying_time': '4H 20M',
-    'date': "10 MAY",
-    'departure_time':"09:00 AM",
-    "number":45
+    'image': 'city_view.png',
+    'place': 'City Scape',
+    'destination': 'Paris',
+    'price': 40
   },
+  {
+    'image': 'pool_view.png',
+    'place': 'Best Pool',
+    'destination': 'Dubai',
+    'price': 68
+  },
+
 ];

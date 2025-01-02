@@ -6,14 +6,11 @@ import 'package:uosat/base/widgets/text_style_fourth.dart';
 import 'package:uosat/base/widgets/text_style_third.dart';
 import 'package:uosat/styles/app_styles.dart';
 
-class TicketView extends StatefulWidget {
-  const TicketView({super.key});
+class TicketView extends StatelessWidget {
+  final Map<String, dynamic> ticket;
+  final bool wholeScreen;
+  const TicketView({super.key, required this.ticket, this.wholeScreen=false});
 
-  @override
-  State<TicketView> createState() => _TicketViewState();
-}
-
-class _TicketViewState extends State<TicketView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -22,7 +19,7 @@ class _TicketViewState extends State<TicketView> {
       width: size.width * 0.85,
       height: 189,
       child: Container(
-        margin: EdgeInsets.only(right: 16),
+        margin: EdgeInsets.only(right: wholeScreen==true?0:16),
         child: Column(
           children: [
             //blue part of ticket
@@ -39,11 +36,10 @@ class _TicketViewState extends State<TicketView> {
                   //line 1...show departure and destination with icons
                   Row(
                     children: [
-                      TextStyleThird(
-                        text: "NYC",
-                      ),
+                      TextStyleThird(text: ticket["from"]["code"],),
                       Expanded(child: Container()),
                       const BigDot(),
+                      //flying icon
                       Expanded(
                           child: Stack(
                         children: [
@@ -65,8 +61,7 @@ class _TicketViewState extends State<TicketView> {
                       )),
                       const BigDot(),
                       Expanded(child: Container()),
-                      TextStyleThird(
-                        text: "LDN",
+                      TextStyleThird(text: ticket["to"]["code"],
                       ),
                     ],
                   ),
@@ -79,18 +74,18 @@ class _TicketViewState extends State<TicketView> {
                       SizedBox(
                         width: 100,
                         child: TextStyleFourth(
-                          text: "New-York",
+                          text: ticket["from"]["name"],
                         ),
                       ),
                       Expanded(child: Container()),
                       TextStyleFourth(
-                        text: "8H 30M",
+                        text: ticket["flying_time"],
                       ),
                       Expanded(child: Container()),
                       SizedBox(
                         width: 100,
                         child: TextStyleFourth(
-                          text: "London",
+                          text: ticket["to"]["name"],
                           align: TextAlign.end,
                         ),
                       ),
@@ -136,14 +131,14 @@ class _TicketViewState extends State<TicketView> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          TextStyleThird(text: "1 MAY"),
+                          TextStyleThird(text: ticket["date"]),
                           SizedBox(height: 5),
                           TextStyleFourth(text: "Date"),
                         ],
                       ),
                       Column(
                         children: [
-                          TextStyleThird(text: "08:00AM"),
+                          TextStyleThird(text: ticket["departure_time"]),
                           SizedBox(height: 5),
                           TextStyleFourth(text: "Departure Time"),
                         ],
@@ -151,7 +146,7 @@ class _TicketViewState extends State<TicketView> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          TextStyleThird(text: "23"),
+                          TextStyleThird(text: ticket["number"].toString()),
                           SizedBox(height: 5),
                           TextStyleFourth(
                             text: "Number",
