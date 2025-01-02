@@ -1,7 +1,7 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uosat/base/widgets/app_double_text.dart';
+import 'package:uosat/base/widgets/ticket_view.dart';
 import 'package:uosat/styles/media.dart';
 
 import '../styles/app_styles.dart';
@@ -61,6 +61,8 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
                 const AppDoubleText(bigText: 'Upcoming Text', smallText: 'View All'),
+                const SizedBox(height: 40),
+                TicketView(),
               ],
             ),
           ),
